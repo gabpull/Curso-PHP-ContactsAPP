@@ -2,6 +2,13 @@
 
   require "database.php";
 
+  session_start();
+
+  if (!isset($_SESSION["user"])) {
+    header("Location: Login.php");
+    return;
+  }
+
   $contacts = $conn->query("SELECT * FROM contacts");
   //var_dump($contacts);
   //die();

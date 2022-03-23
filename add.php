@@ -1,5 +1,10 @@
 <?php
   require "database.php";
+  
+  if (!isset($_SESSION["user"])) {
+    header("Location: Login.php");
+    return;
+  }
 
   $error = null;
 
